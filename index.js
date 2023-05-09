@@ -18,15 +18,18 @@ const connectDB = require("./dbutils/dbutils");
 connectDB();
 
 const app = express();
-const port = 3000;
-
-// Body parser middleware
 app.use(express.json());
 
-// Use questionBankRoutes
-app.use("/api", questionBankRoutes);
+const PORT = process.env.port;
+const dbutil = require("./dbutils/dbutils");
+dbutil.dbinit();
+const userRoute = require("./route/userRoutes");
 
-// Start server
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+app.use("/user", userRoute);
+
+app.get("/user", (req, res) => {
+  res.status(200).send("hello world");
+});
+app.listen(PORT, () => {
+  console.log(`server is running on ${PORT}`);
 });

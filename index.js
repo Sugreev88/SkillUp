@@ -1,8 +1,18 @@
 const express = require("express");
 require("dotenv").config();
 const app = express();
-const PORT = process.env.port || 3000;
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("hello world");
+const PORT = process.env.port;
+const dbutil = require("./dbutils/dbutils");
+dbutil.dbinit();
+const userRoute = require("./route/userRoutes");
+
+app.use("/user", userRoute);
+
+app.get("/user", (req, res) => {
+  res.status(200).send("hello world");
+});
+app.listen(PORT, () => {
+  console.log(`server is running on ${PORT}`);
 });

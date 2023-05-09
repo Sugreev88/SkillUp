@@ -1,0 +1,42 @@
+http://localhost:3000/
+
+###
+POST http://localhost:3000/
+
+###
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{
+    "username":"vaibh",
+    "password":"123456",
+    "email":"@gmail.comm",
+    "role":"admin"
+}
+
+###
+POST http://localhost:3000/user/login/
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiJ9.Z3VwdA.JkpwmDC_JqwBexATt6u5n7-ACsAeAWXSnF4-h_j-s7U",
+    "email":"gup"
+}
+
+###
+POST http://localhost:3000/user/login
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiJ9.QGdtYWlsLmNvbW0.VCbsLWlmUhBCXXpl2XkyPNBudNI53Ask4gEQ8b5wFd8
+
+{
+    # "password":"123456",
+    "email":"@gmail.comm"
+}
+###
+POST http://localhost:3000/user/login
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiJ9.Z3Vw.NcU_4yFzHhnRKxiEOA_fk60XuabmnYlBv2xlcih_KXg
+
+{
+   "email":"gup" 
+}

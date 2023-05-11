@@ -1,42 +1,76 @@
-http://localhost:3000/
+@baseUrl=http://localhost:3300
+
+
+GET {{baseUrl}}/
 
 ###
 POST http://localhost:3000/
 
+
+
+
 ###
-POST http://localhost:3000/user/signup
+POST {{baseUrl}}/user/signup
 Content-Type: application/json
 
 {
-    "username":"vaibh",
+    "username":"vaib12345",
     "password":"123456",
-    "email":"@gmail.comm",
+    "email":"vaib@gmail123.com",
     "role":"admin"
 }
 
+
 ###
-POST http://localhost:3000/user/login/
+POST http://localhost:3300/user/login/
 Content-Type: application/json
+Authorization: :
 
 {
-    "token":"eyJhbGciOiJIUzI1NiJ9.Z3VwdA.JkpwmDC_JqwBexATt6u5n7-ACsAeAWXSnF4-h_j-s7U",
-    "email":"gup"
+    "password":"1234",
+    "email":"vaib@gmail1.com"
 }
 
 ###
-POST http://localhost:3000/user/login
+POST http://localhost:3300/user/login
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiJ9.QGdtYWlsLmNvbW0.VCbsLWlmUhBCXXpl2XkyPNBudNI53Ask4gEQ8b5wFd8
+Authorization:  eyJhbGciOiJIUzI1NiJ9.QGdtYWlsLmNvbW0.VCbsLWlmUhBCXXpl2XkyPNBudNI53Ask4gEQ8b5wFd8
 
 {
     # "password":"123456",
     "email":"@gmail.comm"
 }
+
+
 ###
-POST http://localhost:3000/user/login
+POST http://localhost:3300/user/login
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiJ9.Z3Vw.NcU_4yFzHhnRKxiEOA_fk60XuabmnYlBv2xlcih_KXg
 
 {
    "email":"gup" 
 }
+
+# forgot password
+###
+POST http://localhost:3300/user/forgotPassword
+Content-Type: application/json
+
+{
+    "phone":918930485009,
+    "email":"vaib@gmail1.com"
+}
+
+
+# update password
+###
+POST http://localhost:3300/user/forgotPassword/otp
+Content-Type: application/json
+
+{
+    "otp":"928626",
+    "password":"1234",
+    "email":"vaib@gmail1.com"
+}
+
+

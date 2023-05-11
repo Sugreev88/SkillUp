@@ -10,7 +10,7 @@ const userRoute = require("./route/userRoutes");
 
 app.use("/user", userRoute);
 
-app.get("/user", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).send("hello world");
 });
 app.listen(PORT, () => {

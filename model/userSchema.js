@@ -28,6 +28,9 @@ const UserSchema = new mongoose.Schema({
   token: {
     type: String,
   },
+  otp: {
+    type: String,
+  },
 });
 
 UserSchema.pre("save", async function (next) {

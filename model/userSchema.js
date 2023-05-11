@@ -19,6 +19,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true,
+    // select: false,
   },
   role: {
     type: String,
@@ -30,6 +31,7 @@ const UserSchema = new mongoose.Schema({
   },
   otp: {
     type: String,
+    expires: 300,
   },
 });
 

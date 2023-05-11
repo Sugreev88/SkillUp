@@ -1,76 +1,57 @@
-@baseUrl=http://localhost:3300
+@baseUrl=http://localhost:3300/user
 
-
-GET {{baseUrl}}/
-
+###signing up user###
 ###
-POST http://localhost:3000/
-
-
-
-
-###
-POST {{baseUrl}}/user/signup
+POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
-    "username":"vaib12345",
-    "password":"123456",
-    "email":"vaib@gmail123.com",
+    "username":"vaibhav075",
+    "password":"1234567",
+    "email":"vaibhav@gmail1.com",
     "role":"admin"
 }
 
-
+###login ###
 ###
-POST http://localhost:3300/user/login/
+POST {{baseUrl}}/login
 Content-Type: application/json
-Authorization: :
+Authorization:
 
-{
-    "password":"1234",
-    "email":"vaib@gmail1.com"
+{ 
+    "email":"vaibhav@gmail1.com",
+    "password":"1234567"
 }
 
+### login through token ###
 ###
-POST http://localhost:3300/user/login
+POST {{baseUrl}}/login
 Content-Type: application/json
-Authorization:  eyJhbGciOiJIUzI1NiJ9.QGdtYWlsLmNvbW0.VCbsLWlmUhBCXXpl2XkyPNBudNI53Ask4gEQ8b5wFd8
+Authorization: bearer eyJhbGciOiJIUzI1NiJ9.dmFpYmhhdkBnbWFpbDEuY29t.RloeC3osyf40ssoXwRs5qQpOeUsZWlV9AEHgQjTAbPk
 
 {
-    # "password":"123456",
-    "email":"@gmail.comm"
+    "email":"vaibhav@gmail1.com"
 }
 
-
+### forgot password using otp ###
 ###
-POST http://localhost:3300/user/login
+POST {{baseUrl}}/forgotPassword
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiJ9.Z3Vw.NcU_4yFzHhnRKxiEOA_fk60XuabmnYlBv2xlcih_KXg
 
 {
-   "email":"gup" 
+    "phone":918826891859,
+   "email":"vaibhav@gmail.com"
 }
 
-# forgot password
+### update password using otp ###
 ###
-POST http://localhost:3300/user/forgotPassword
+POST {{baseUrl}}/updatePassword
 Content-Type: application/json
 
 {
-    "phone":918930485009,
-    "email":"vaib@gmail1.com"
-}
-
-
-# update password
-###
-POST http://localhost:3300/user/forgotPassword/otp
-Content-Type: application/json
-
-{
-    "otp":"928626",
-    "password":"1234",
-    "email":"vaib@gmail1.com"
+    "otp":"547105",
+    "password":"hhhh",
+    "email":"vaibhav@gmail1.com"
 }
 
 

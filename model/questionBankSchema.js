@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const { default: mongoose } = require("mongoose");
 
 const questionSchema = new mongoose.Schema({
   title: {
@@ -7,41 +7,35 @@ const questionSchema = new mongoose.Schema({
     required: true,
     maxlength: 500,
   },
-  option: {
+  options: {
     type: [String],
+    trim: true,
+    required: true,
     validate: {
       validator: function (v) {
         return v.length === 4;
       },
-      msg: "Array must have a lenght of 4",
+      return: { message: "Array must have a length of 4" },
     },
   },
   answer: {
     type: String,
+    required: true,
+    enum: [],
     validate: {
       validator: function (v) {
-        return this.option.includes(v);
+        return this.options.includes(v);
       },
       message: "Answer must be one of the options",
     },
-    required: true,
   },
   type: {
     type: String,
     trim: true,
     required: true,
     lowercase: true,
-    validate: {
-      validator: function (type) {
-        const allowedType = ["easy", "medium", "hard"];
-        if (allowedType.includes(type)) {
-          return;
-        } else {
-          throw new Error(`Question can only be easy medium or hard `);
-        }
-      },
-      message: "type of string can only be easy medium or hard",
-    },
+    enum: ["easy", "medium", "hard"],
   },
 });
+
 module.exports = mongoose.model("Question", questionSchema);
